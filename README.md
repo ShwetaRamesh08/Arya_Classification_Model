@@ -14,7 +14,7 @@ Binary Classification - Do an exploratory analysis of the dataset provided, deci
     
     * We then look for missing values in both the datasets. We find that there are no missing values.
     
-    * We check if the given training dataset is balanced. To do this, we do a value count of 0s and 1s in the target variable. We find that the proportion is aroynd 60-40, hence the dataset seems to be balanced.
+    * We check if the given training dataset is balanced. To do this, we do a value count of 0s and 1s in the target variable. We find that the proportion is around 60-40, hence the dataset seems to be balanced.
     
     * We check the distribution of each feature using histograms. We find that the distribution of each feature is heavily skewed. We try to transform the features to Normality by using the **YeoJohnson transformation**. Since a number of observations are 0, Box-Cox transformation fails to work.
     
@@ -27,16 +27,16 @@ Binary Classification - Do an exploratory analysis of the dataset provided, deci
     
     * We then create a benchmark Logistic regression model consisting of all the features except the ones dropped in the previous step, to check the Wald-p values. The variables with a p-value > 0.05 are considered to be insignificant and hence are dropped. The dataset is first split into a train and validation set in the ratio 4:1.
     
-    * While creating the benchmark logistic model, it we find that some separation exists in the data. Thus the maximum likelihood estimate did not exist for that model. 
+    * While creating the benchmark logistic model, we find that some separation exists in the data. Thus the maximum likelihood estimate does not exist. 
     
-    * We then apply penalized likelihood regression technique named the Firth Regression Technique. Since this technique does not exist in either the statsmodels or the sklearn libraries, John Lee's implementation of the same (link : https://gist.github.com/johnlees/3e06380965f367e4894ea20fbae2b90d) is used, with minor modifications.
+    * We then apply a penalized likelihood regression technique named the Firth Regression Technique. Since this technique does not exist in either the statsmodels or the sklearn libraries, John Lee's implementation of the same (link : https://gist.github.com/johnlees/3e06380965f367e4894ea20fbae2b90d) is used, with minor modifications.
     
     * We further drop the features with p-values > 0.05, and come up with a list of significant features that can be used to build the model.
     
     
 3. **Model building and Validation:**
     
-    * We use the Firth Regression to identify the coefficients of the features and then use those coefficients to predict the Y values using the logistic function. 
+    * We use the Firth Regression to identify the coefficients of the selected features and then use those coefficients to predict the Y values using the logistic function. 
     
     * We use a default threshold of 0.5 to classify the predicted values as either 0 or 1.
     
@@ -48,8 +48,7 @@ Binary Classification - Do an exploratory analysis of the dataset provided, deci
         * FN (False Negative): Actual value = 1, predicted value = 0
         
    * We use the following metrics to test the performance:
-        1. Accuracy: Measures the proportion of correct predictions to the total number of predictions
-        
+        1. Accuracy: Measures the proportion of correct predictions to the total number of predictions.
            * formula : (TP + TN)/(TP + TN + FP + FN)
         2. Sensitivity: The ability of the model to correctly identify a positive. Also known as Recall.
            * formula : (TP)/(TP + FN)
