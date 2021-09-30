@@ -66,3 +66,15 @@ Binary Classification - Do an exploratory analysis of the dataset provided, deci
     * We first select only those features that are required for predicting the model.
     * We then transform the data to Normality using the YeoJohnson transformation. 
     * We then make predictions based on the coefficients determined earlier.
+
+# Files in this project:
+ Along with this readme file, this project also contains the following files:
+ 1. EDA_Data_Preprocessing.ipynb : A python Notebook containing the approach and codes used for EDA and Feature Selection.
+ 2. FirthRegression.py : A script for the Firth Regression Algorithm based on the code implemented by John Lee.
+ 3. model_performance.ipynb : A python Notebook containing the approach and codes used for testing the model on the validation set and making predictions on the test set.
+ 4. training_set.csv : The csv for the train set as provided in the problem statement.
+ 5. test_set.csv: The csv for the test set as provided in the problem statement.
+ 6. modified_train_set.csv : The train set generated after data preprocessing, feature selection, and the train-test split.
+ 7. Validation_set.csv : The validation set generated after data preprocessing and the train-test split.
+ 8. predictions.csv : The original test set, with an additional column of predicted Y.
+ 9. requirements.txt : A file containing the list of libraries/dependencies along with their versions, used to run this code.
